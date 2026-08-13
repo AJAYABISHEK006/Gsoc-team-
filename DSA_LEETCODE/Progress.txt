@@ -1,0 +1,4 @@
+13-08-2026  {
+    Mrng - Hackathon discussion
+    Aft - Hackathon + Git and GitHub
+}
