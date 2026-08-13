@@ -1,0 +1,7 @@
+f = open(r"D:\Practice1.txt", "a")
+f.write("Data\n")
+f.write("Structure\n")
+f.close()
+f = open(r"D:\Practice1.txt", "r+")
+Content=f.read()
+print(Content)
