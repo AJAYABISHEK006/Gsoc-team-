@@ -1,0 +1,15 @@
+class Solution {
+    public int addDigits(int num) {
+        int n = num;
+       
+        while(n >= 0)
+        {
+            int sum = n % 10;
+            n /=10;
+            sum +=n;
+            n = sum;
+            if(n < 10) return n; 
+        }
+        return 1;
+    }
+}
