@@ -1,0 +1,36 @@
+class Solution {
+    public String addBinary(String a, String b) {
+
+       int carry = 0;
+       int sum = 0;
+      String ap = "";
+       for(int i = a.length() -1 ,j = b.length() - 1; i >= 0 || j >= 0;i--,j--)
+       {
+           if(i >= 0 && j >= 0)
+           {
+               sum = ( a.charAt(i) - '0' )+ ( b.charAt(j) - '0' ) + carry;
+           }
+           else if(j < 0)
+           {
+                 sum = ( a.charAt(i) - '0' )+ 0 + carry;
+           }
+           else
+           {
+                  sum = 0 +  ( b.charAt(j) - '0' ) + carry;
+           }
+          
+           carry = sum / 2;
+           ap += String.valueOf(sum % 2);
+       }
+       if(carry > 0)
+       {
+        ap += String.valueOf(carry);
+       }
+       String rev = "";
+       for(int i = ap.length() - 1 ; i >= 0;i--)
+       {
+            rev += ap.charAt(i);
+       }
+       return rev;
+    }
+}
