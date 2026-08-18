@@ -2,3 +2,7 @@
     Mrng - Hackathon discussion
     Aft - Hackathon + Git and GitHub
 }
+
+15-08-2026{
+    Researched for Hackathon problem statement
+}
