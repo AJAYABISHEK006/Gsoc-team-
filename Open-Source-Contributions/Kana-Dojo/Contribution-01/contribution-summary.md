@@ -48,12 +48,6 @@ The changes include:
 
 `fix: normalize vocabulary answers`
 
-## Evidence
-
-Screenshots of the Pull Request, commit, and changed files are available in the `screenshots` folder.
-
----
-
 ## Learning Outcome
 
 Through this contribution, I learned how to:
