@@ -92,7 +92,7 @@ if __name__ == "__main__":
     else:
         print("20 not found")
 
-    print("\nDeleting 20...")
+    print("\nDeleting 288...")
     sll.delete(288)
 
     print("Linked List after deletion:")
