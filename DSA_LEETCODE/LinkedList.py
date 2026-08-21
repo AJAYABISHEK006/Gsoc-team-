@@ -77,23 +77,29 @@ class SinglyLinkedList:
 # Driver code
 if __name__ == "__main__":
     sll = SinglyLinkedList()
-
-    sll.insert_end(100)
-    sll.insert_end(288)
-    sll.insert_end(3009)
-    sll.insert_begin(5098)
+    a=int(input("Enter the first value:"))
+    b=int(input("Enter the second value:"))
+    c=int(input("Enter the third value:"))
+    d=int(input("Enter the beginning value"))
+    sll.insert_end(a)
+    sll.insert_end(b)
+    sll.insert_end(c)
+    sll.insert_begin(d)
 
     print("Linked List:")
     sll.display()
-
-    print("\nSearching for 20:")
-    if sll.search(20):
-        print("20 found")
+    s=int(input("The searching value is "))
+    print("\nSearching for ",s)
+    if sll.search(s):
+        print("Element found")
     else:
-        print("20 not found")
+        print("Element not found")
 
-    print("\nDeleting 288...")
-    sll.delete(288)
+    n = int(input("Enter the deleting number:"))
+    if n:
+
+        print("\nDeleting ",n ,"...")
+        sll.delete(n)
 
     print("Linked List after deletion:")
     sll.display()
