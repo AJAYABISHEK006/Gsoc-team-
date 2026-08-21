@@ -1,16 +1,19 @@
-def login(user_data):
-    print(f"{user_data['name']} has logged in")
-def view_task(user_data):
-    print(f"{user_data['name']} is viewing tasks")
-def submit_task(user_data):
-    if user_data['role']=="team_member":
-        print(f"{user_data['name']} has submitted the work")
-    else:
-        print("Managers need not submit work")
-def assign_task(user_data):
-    if user_data['role']=="manager":
-            print(f"{user_data['name']} has assigned task")
-    else:
-        print("Team members cannot assign task")
-user_data = {"name":"aishu","role":"manager"}
-login(user_data)
+class Employee:
+    def __init__(self,name):
+        self.name=name
+    def login(self):
+        return f"{self.name} has logged in."
+    def view_tasks(self):
+        return f"{self.name} can view assigned tasks."
+class TeamMember(Employee):
+    def submit_task(self):
+        return f"{self.name} can submit the task."
+class Manager(Employee):
+    def assign_task(self):
+        return f"{self.name} can assign a new task."
+john=TeamMember("John")
+alice=Manager("Alice")
+print(john.login())
+print(john.submit_task())
+print(alice.login())
+print(alice.assign_task())
