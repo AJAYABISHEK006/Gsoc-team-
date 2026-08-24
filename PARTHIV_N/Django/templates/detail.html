@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.title }} | Parthiv</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div class="page-shell detail-shell">
+        <div class="bg-grid"></div>
+        <div class="bg-glow glow-one"></div>
+        <div class="bg-glow glow-two"></div>
+
+        <header class="topbar detail-topbar">
+            <a href="{% url 'home' %}" class="brand-mark">
+                <span class="brand-tag">P</span>
+                <span>PARTHIV</span>
+            </a>
+        </header>
+
+        <main class="detail-page">
+            <section class="section project-detail-panel">
+                <p class="eyebrow">MISSION FILE</p>
+                <h1>{{ project.title }}</h1>
+                <div class="project-meta">
+                    <span>{{ project.project_type }}</span>
+                    <span>{{ project.year }}</span>
+                </div>
+                <p class="project-summary">{{ project.short_description }}</p>
+
+                <div class="project-body">
+                    <p>{{ project.description }}</p>
+                    <div class="tech-stack detail-tech">{{ project.technologies }}</div>
+                    <div class="mission-actions detail-actions">
+                        {% if project.demo_url %}
+                        <a href="{{ project.demo_url }}" target="_blank" rel="noreferrer">VIEW DEMO</a>
+                        {% endif %}
+                        {% if project.source_url %}
+                        <a href="{{ project.source_url }}" target="_blank" rel="noreferrer">VIEW SOURCE</a>
+                        {% endif %}
+                        <a href="{% url 'home' %}#projects">BACK TO MISSIONS</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

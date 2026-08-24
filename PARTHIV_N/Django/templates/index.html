@@ -1,11 +1,260 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{ profile.full_name }} | Portfolio</title>
+    <meta name="description" content="{{ profile.tagline }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    
+    <div class="page-shell">
+        <div class="bg-grid"></div>
+        <div class="bg-glow glow-one"></div>
+        <div class="bg-glow glow-two"></div>
+
+        <header class="topbar">
+            <div class="brand-mark">
+                <span class="brand-tag">P</span>
+                <span>PARTHIV</span>
+            </div>
+            <nav class="main-nav">
+                <a href="#about">Profile</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Mission</a>
+                <a href="#journey">Journey</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero section">
+                <div class="hero-copy">
+                    <p class="eyebrow">SYSTEM BOOT COMPLETE</p>
+                    <h1>PARTHIV</h1>
+                    <h2>{{ profile.title }}</h2>
+                    <blockquote>"{{ profile.tagline }}"</blockquote>
+                    <div class="cta-row">
+                        <a class="primary-btn" href="#projects">EXPLORE MY WORK</a>
+                        <a class="secondary-btn" href="#contact">CONTACT ME</a>
+                    </div>
+                    <div class="quick-stats" aria-label="Portfolio highlights">
+                        <div>
+                            <span class="stat-label">Focus</span>
+                            <strong>AI / Web</strong>
+                        </div>
+                        <div>
+                            <span class="stat-label">Mode</span>
+                            <strong>Building</strong>
+                        </div>
+                        <div>
+                            <span class="stat-label">Status</span>
+                            <strong>Learning</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="Anime-inspired futuristic profile visual">
+                    <div class="profile-core">
+                        <div class="scan-ring ring-one"></div>
+                        <div class="scan-ring ring-two"></div>
+                        <div class="avatar-silhouette">
+                            <div class="head"></div>
+                            <div class="body"></div>
+                            <div class="glow-line"></div>
+                        </div>
+                        <div class="hud-panel">
+                            <span>ACTIVE</span>
+                            <strong>PARTHIV.OS</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="section about-panel">
+                <div class="section-heading">
+                    <p class="eyebrow">CHARACTER PROFILE</p>
+                    <h3>About</h3>
+                </div>
+
+                <div class="profile-grid">
+                    <div class="profile-card stats-screen">
+                        <div class="panel-header">SYSTEM DATA</div>
+                        <dl class="data-list">
+                            <div><dt>Name</dt><dd>{{ profile.full_name }}</dd></div>
+                            <div><dt>Class</dt><dd>B.Tech IT</dd></div>
+                            <div><dt>Role</dt><dd>Developer</dd></div>
+                            <div><dt>Specialty</dt><dd>Python / AI / Web</dd></div>
+                            <div><dt>Status</dt><dd>Learning & Building</dd></div>
+                        </dl>
+                    </div>
+
+                    <div class="profile-card bio-card">
+                        <div class="panel-header">FIELD NOTES</div>
+                        <p>{{ profile.about }}</p>
+                        <ul class="interest-list">
+                            <li>Python</li>
+                            <li>Django</li>
+                            <li>Machine Learning</li>
+                            <li>Data Science</li>
+                            <li>Web Development</li>
+                            <li>Problem Solving</li>
+                            <li>Experimental Projects</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section skills-panel">
+                <div class="section-heading">
+                    <p class="eyebrow">ABILITY MATRIX</p>
+                    <h3>Skills</h3>
+                </div>
+
+                <div class="skills-grid">
+                    {% for category in skill_categories %}
+                    <article class="skill-card">
+                        <div class="card-topline">{{ category.name }}</div>
+                        <div class="skill-list">
+                            {% for skill in category.skills.all %}
+                            <div class="skill-item">
+                                <div class="skill-meta">
+                                    <span>{{ skill.name }}</span>
+                                    <em>{{ skill.level }}</em>
+                                </div>
+                                <div class="level-bar">
+                                    <span class="level-fill level-{{ skill.level|lower|cut:' ' }}"></span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section id="projects" class="section mission-panel">
+                <div class="section-heading">
+                    <p class="eyebrow">ACTIVE MISSIONS</p>
+                    <h3>Projects</h3>
+                </div>
+
+                <div class="project-grid">
+                    {% for project in projects %}
+                    <article class="mission-card">
+                        <div class="mission-label">MISSION {{ forloop.counter|stringformat:"02d" }}</div>
+                        <h4>{{ project.title }}</h4>
+                        <p>{{ project.short_description }}</p>
+                        <div class="tech-stack">
+                            {{ project.technologies }}
+                        </div>
+                        <div class="mission-actions">
+                            <a href="{% url 'project_detail' project.slug %}">VIEW PROJECT</a>
+                            {% if project.source_url %}
+                            <a href="{{ project.source_url }}" target="_blank" rel="noreferrer">VIEW SOURCE</a>
+                            {% endif %}
+                        </div>
+                    </article>
+                    {% empty %}
+                    <p class="empty-state">No published missions yet.</p>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section id="journey" class="section timeline-panel">
+                <div class="section-heading">
+                    <p class="eyebrow">LEVEL-UP TRACK</p>
+                    <h3>Learning Journey</h3>
+                </div>
+
+                <div class="timeline">
+                    {% for milestone in milestones %}
+                    <div class="timeline-item">
+                        <div class="timeline-year">{{ milestone.year }}</div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge">{{ milestone.title }}</div>
+                            {% if milestone.description %}
+                            <p>{{ milestone.description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="section combat-panel">
+                <div class="section-heading">
+                    <p class="eyebrow">COMBAT RECORD</p>
+                    <h3>Coding & GitHub</h3>
+                </div>
+
+                <div class="combat-grid">
+                    <div class="combat-card">
+                        <span class="combat-label">GitHub Repositories</span>
+                        <strong>Active learning</strong>
+                    </div>
+                    <div class="combat-card">
+                        <span class="combat-label">Coding Projects</span>
+                        <strong>{{ projects.count }} published missions</strong>
+                    </div>
+                    <div class="combat-card">
+                        <span class="combat-label">LeetCode</span>
+                        <strong>Problem solving</strong>
+                    </div>
+                    <div class="combat-card">
+                        <span class="combat-label">Core Stack</span>
+                        <strong>Python • Django • AI</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section contact-panel">
+                <div class="section-heading">
+                    <p class="eyebrow">ESTABLISH CONNECTION</p>
+                    <h3>Contact</h3>
+                </div>
+
+                <div class="contact-grid">
+                    <form class="contact-form" method="post">
+                        {% csrf_token %}
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="name" placeholder="Your name" required>
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email" placeholder="you@example.com" required>
+                        </label>
+                        <label>
+                            <span>Message</span>
+                            <textarea name="message" rows="5" placeholder="Tell me about your idea..." required></textarea>
+                        </label>
+                        <button type="submit">TRANSMIT MESSAGE</button>
+                    </form>
+
+                    <aside class="contact-sidebar">
+                        <div class="social-panel">
+                            <h4>PROFILES</h4>
+                            <ul>
+                                {% for link in social_links %}
+                                <li><a href="{{ link.url }}" target="_blank" rel="noreferrer">{{ link.platform }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="contact-box">
+                            <span>Email</span>
+                            <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>

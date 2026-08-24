@@ -1,42 +1,56 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import Category, ProjectItem
 
-class DjangoStarterTests(TestCase):
+from .models import ContactMessage, Profile, Project, Skill, SkillCategory
+
+
+class PortfolioTests(TestCase):
     def setUp(self):
-        self.category = Category.objects.create(
-            name='Test Category',
-            slug='test-category',
-            description='Test category description'
+        self.profile = Profile.objects.create(
+            full_name='Parthiv',
+            title='B.Tech Information Technology | Developer | AI/ML Enthusiast',
+            tagline='Building systems. Breaking limits. Learning relentlessly.',
+            about='Technology-focused student exploring AI and web development.',
+            email='parthiv@example.com',
+            is_primary=True,
         )
-        self.item = ProjectItem.objects.create(
-            title='Test Project Task',
+        self.category = SkillCategory.objects.create(name='Programming', slug='programming')
+        self.skill = Skill.objects.create(
             category=self.category,
-            description='Sample task description',
-            status='pending',
-            priority='high'
+            name='Python',
+            level='Advanced',
+        )
+        self.project = Project.objects.create(
+            title='Air Quality Monitor',
+            slug='air-quality-monitor',
+            short_description='ML-powered environmental monitoring dashboard.',
+            description='A project that tracks air quality and visualizes insights.',
+            technologies='Python • Django • ML • PostgreSQL',
+            source_url='https://github.com/example/air-quality-monitor',
+            is_published=True,
         )
 
     def test_home_view(self):
         response = self.client.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Test Project Task')
-        self.assertContains(response, 'Project Control Hub')
+        self.assertContains(response, 'PARTHIV')
+        self.assertContains(response, 'Building systems. Breaking limits. Learning relentlessly.')
+        self.assertContains(response, 'Air Quality Monitor')
 
-    def test_item_detail_view(self):
-        response = self.client.get(reverse('item_detail', args=[self.item.pk]))
+    def test_project_detail_view(self):
+        response = self.client.get(reverse('project_detail', args=[self.project.slug]))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Test Project Task')
+        self.assertContains(response, 'Air Quality Monitor')
 
-    def test_toggle_status_view(self):
-        response = self.client.post(reverse('toggle_status', args=[self.item.pk]))
-        self.assertEqual(response.status_code, 302)
-        self.item.refresh_from_db()
-        self.assertEqual(self.item.status, 'in_progress')
-
-    def test_api_status_view(self):
-        response = self.client.get(reverse('api_status'))
+    def test_contact_message_view(self):
+        response = self.client.post(
+            reverse('home'),
+            {
+                'name': 'Test User',
+                'email': 'test@example.com',
+                'message': 'Interested in working together.',
+            },
+            follow=True,
+        )
         self.assertEqual(response.status_code, 200)
-        json_data = response.json()
-        self.assertEqual(json_data['status'], 'success')
-        self.assertIn('stats', json_data)
+        self.assertTrue(ContactMessage.objects.filter(email='test@example.com').exists())
