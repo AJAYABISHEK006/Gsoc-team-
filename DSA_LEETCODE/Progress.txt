@@ -10,3 +10,14 @@
 20-08-2026{
     Changed the problem statement and reseached about water contamination
 }
+
+27-08-2026{
+    Researched for the updated problem statement and discussed about the workflow
+}
+
+28-08-2026{
+    APIs key collection 
+    1.Indian government water-quality datasets (data.gov.in)
+    (https://www.data.gov.in/search?title=surface%20water%20quality%20CPCB&type=resources&sortby=_score)
+    Reseached in the web
+}
