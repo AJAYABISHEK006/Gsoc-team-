@@ -1,43 +1,45 @@
 class Stack:
     def __init__(self):
-        self.items = []
+        self.stack = []
 
-   
+    # Push operation
     def push(self, item):
-        self.items.append(item)
-        print(item, "pushed into stack")
+        self.stack.append(item)
 
+    # Pop operation
     def pop(self):
-        if self.is_empty():
-            return "Stack is empty"
-        return self.items.pop()
+        if len(self.stack) == 0:
+            print("Stack is empty")
+        else:
+            print("Deleted:", self.stack.pop())
 
-    
+    # Peek operation
     def peek(self):
-        if self.is_empty():
-            return "Stack is empty"
-        return self.items[-1]
+        if len(self.stack) == 0:
+            print("Stack is empty")
+        else:
+            print("Top element:", self.stack[-1])
 
-   
+    # Display operation
     def display(self):
-        print("Stack:", self.items)
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-my_stack = Stack()
-
-my_stack.push(10)
-my_stack.push(20)
-my_stack.push(30)
+        print("Stack:", self.stack)
 
 
-my_stack.display()
+# Create stack
+s = Stack()
 
+# Push elements
+s.push(10)
+s.push(20)
+s.push(30)
 
-print("Top element:", my_stack.peek())
+s.display()
 
+# Peek
+s.peek()
 
-print("Removed element:", my_stack.pop())
+# Pop
+s.pop()
 
-my_stack.display()
+# Display after pop
+s.display()
