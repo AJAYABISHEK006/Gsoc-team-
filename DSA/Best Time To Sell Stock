@@ -1,0 +1,18 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        
+        minimum = prices[0]
+        profit = 0
+
+        for price in prices:
+
+            if price < minimum:
+                minimum = price
+
+            current_profit = price - minimum
+
+            if current_profit > profit:
+                profit = current_profit
+
+        return profit
+        
