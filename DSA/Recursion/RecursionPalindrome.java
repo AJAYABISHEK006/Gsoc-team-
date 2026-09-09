@@ -5,7 +5,7 @@ class RecursionPalindrome
 
         if(reverse(n,0) == n)
         {
-            return "Paindrome";
+            return "Palindrome";
         }   
         else{
             return "Not A Palindrome";
