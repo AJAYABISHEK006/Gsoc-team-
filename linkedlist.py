@@ -31,7 +31,6 @@ class linkedlist:
                 print(temp.data, end=" -> ")
                 temp = temp.next
             print("None")
-l=[10,20,30]
 l = linkedlist()
 
 while True:
