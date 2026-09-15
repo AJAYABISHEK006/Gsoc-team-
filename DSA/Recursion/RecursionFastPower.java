@@ -2,12 +2,19 @@ class RecursionFastPower
 {
     static int power(int base, int exponent)
     {
-        if(base == 0)
+        if(exponent == 0)
         {
             return 1;
         }
 
-        return base * power(base,exponent/2) * power(base,exponent/2);
+        int half = power(base, exponent / 2);
+
+        if(exponent % 2 == 0)
+        {     
+            return half * half;
+        }
+
+        return base * half * half;
     }
 
     public static void main(String[] args)
