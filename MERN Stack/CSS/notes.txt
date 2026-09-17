@@ -1,0 +1,11 @@
+Types of CSS command
+    1.Inline
+    2.Internal
+    3.External
+
+Simple Selectors Types
+    1.tags Selector
+    2.id Selector
+    3.class Selector / tags+class
+    4.universal Selector
+    5.grouping Selector (combination)

@@ -1,0 +1,27 @@
+h3 {
+    color: chocolate;
+}
+
+a.text {
+    font-size: larger;
+    color: rgb(83, 218, 21);
+}
+
+#AK {
+    color: darkcyan;
+}
+
+.text {
+    color: firebrick;
+}
+
+* {
+    font-family: sans-serif;
+}
+
+h1,h3 {
+    text-align: center;
+}
+/*
+This is a comment
+*/
