@@ -1,0 +1,28 @@
+h1{
+    /* border-style: dashed dotted ;
+    border-width: 5px 3px;
+    border-color: blue white;
+    border-radius: 50px 60px; */
+    margin: inherit;
+    width: 200px;
+    border: solid 2px black;
+}
+
+h2 {
+    /* border-style: dashed double dotted solid;
+    border-width: 10px 5px 6px 7px;
+    border-color: aliceblue aqua red green;
+    border-radius: 5px 10px 15px 0px; */
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 22px;
+}
+
+body {
+    background-color:darkslategrey;
+    margin: 50px;
+}
+  
+
+/* Height and Width */
