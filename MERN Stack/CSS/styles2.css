@@ -6,23 +6,47 @@ h1{
     margin: inherit;
     width: 200px;
     border: solid 2px black;
+    text-decoration: line-through;
+    text-transform: capitalize;
 }
 
+a{
+    text-decoration: none;
+}
 h2 {
-    /* border-style: dashed double dotted solid;
+    border-style: dashed double dotted solid;
     border-width: 10px 5px 6px 7px;
     border-color: aliceblue aqua red green;
-    border-radius: 5px 10px 15px 0px; */
+    border-radius: 5px 10px 15px 0px;
     margin-top: 10px;
     margin-bottom: 15px;
     margin-left: 20px;
     margin-right: 22px;
+    height: auto;
+    width: auto;
+    text-align: justify;
+    text-transform: capitalize;
+    text-shadow: 3px 3px 5px red;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-weight: 200;
+    color: blue;
 }
 
 body {
-    background-color:darkslategrey;
-    margin: 50px;
+    background-color:rgb(133, 237, 173);
+    /* margin: 50px; */
 }
-  
+p {
+    color: aqua;
+    background-color: aliceblue;
+    text-align: center;
+    font-weight: lighter;
+    font-variant: small-caps;
+    
+}
+table{
+    border: 1px ;
+}
 
 /* Height and Width */
