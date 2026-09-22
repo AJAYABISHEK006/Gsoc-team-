@@ -1,0 +1,109 @@
+# ==============================================================================
+# GitIgnore for Micro-Plastics Detection & Identification Research
+# ==============================================================================
+
+# Python Bytecode & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebook Checkpoints & Cache
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Deep Learning Weights & Checkpoints (YOLO / PyTorch)
+*.pt
+*.pth
+*.pwf
+yolov8*.pt
+yolo*.pt
+*.weights
+
+# Model Export Formats for Edge Hardware
+*.onnx
+*.engine
+*_openvino_model/
+*.tflite
+*.mlmodel
+*.pb
+*.savedmodel
+
+# Ultralytics & Experiment Runs
+runs/
+ml/runs/
+microplastic_experiments/
+ml/microplastic_experiments/
+wandb/
+ml/wandb/
+*.log
+
+# Large Datasets & Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Raw & Generated Microscopy Image Files
+# Keep data.yaml, README.md, and dataset scripts tracked
+datasets/nile-red-microplastics/images/
+datasets/nile-red-microplastics/labels/
+datasets/nile-red-microplastics/dataset_microplastic/
+datasets/nile-red-microplastics/*.zip
+
+# Satellite Imagery Datasets
+datasets/nasa-marine-debris/data/
+datasets/nasa-marine-debris/images/
+datasets/nasa-marine-debris/labels/
+datasets/nasa-marine-debris/*.zip
+datasets/nasa-marine-debris/*.tar.gz
+
+# Output Inference Visualizations & Reports
+output/
+ml/output/
+inference_results/
+ml/inference_results/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Configurations
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.agents/

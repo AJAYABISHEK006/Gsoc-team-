@@ -1,0 +1,31 @@
+{
+  "project": "Plastic Ledger AI Core",
+  "version": "2.4.0",
+  "vision": {
+    "model": "SegFormer-B2-SubPixel",
+    "classes": ["ABS", "Nylon", "PE", "PET", "PS", "PVC"],
+    "subpixel_interpolation": "Bicubic + Active Contours",
+    "magnification_scales": {
+      "4x": 0.26,
+      "10x": 0.65,
+      "20x": 1.30,
+      "40x": 2.60
+    }
+  },
+  "physics_ai": {
+    "framework": "DeepXDE",
+    "pde": "Advection-Diffusion-Settling",
+    "settling_models": "Stokes-Polymer-Density",
+    "loss_weights": {
+      "pde_residual": 1.0,
+      "initial_condition": 10.0,
+      "boundary_condition": 5.0,
+      "data_observation": 20.0
+    }
+  },
+  "satellite": {
+    "sentinel2_bands": ["B02", "B03", "B04", "B08", "B11", "B12"],
+    "landsat9_bands": ["B2", "B3", "B4", "B5", "B6", "B7"],
+    "indices": ["FDI", "NDVI", "Plastic_Index"]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "dataset": "Nile Red Fluorescence Microplastics & Satellite Sentinel/Landsat Scenes",
+  "classes": ["ABS", "Nylon", "PE", "PET", "PS", "PVC"],
+  "status": "Ready for SegFormer inference and DeepXDE PINN transport modeling"
+}

@@ -1,0 +1,11 @@
+path: D:/Micro-Plastics/datasets/nile-red-microplastics
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: ABS
+  1: Nylon
+  2: PE
+  3: PET
+  4: PS
+  5: PVC

@@ -1,0 +1,20 @@
+# ==============================================================================
+# YOLOv8 Dataset Configuration: NASA IMPACT Marine Debris (PlanetScope Imagery)
+# Reference: Shah, Thomas, & Maskey (2021), Radiant MLHub (DOI: 10.34911/rdnt.9r6ekg)
+# ==============================================================================
+
+# Dataset root path
+path: datasets/nasa-marine-debris
+
+# Relative image directories
+train: images/train
+val: images/val
+test: images/test
+
+# Target Classes (Satellite Optical 3m PlanetScope Imagery)
+names:
+  0: Plastics
+  1: Algae
+  2: Sargassum
+  3: Wood
+  4: Artificial Items

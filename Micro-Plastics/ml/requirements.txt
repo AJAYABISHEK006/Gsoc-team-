@@ -1,0 +1,32 @@
+# Deep Learning & Object Detection
+ultralytics>=8.0.0
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Computer Vision & Image Processing
+opencv-python>=4.7.0
+pillow>=9.5.0
+
+# Scientific Computing & Data Analysis
+numpy>=1.23.0
+pandas>=1.5.0
+scipy>=1.10.0
+scikit-learn>=1.2.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Notebook Environment
+jupyter>=1.0.0
+notebook>=6.5.0
+ipykernel>=6.20.0
+ipywidgets>=8.0.0
+
+# Configuration & Utilities
+pyyaml>=6.0
+tqdm>=4.65.0
+
+# Optional Model Export (Edge Deployment)
+onnx>=1.14.0
+onnxruntime>=1.15.0
