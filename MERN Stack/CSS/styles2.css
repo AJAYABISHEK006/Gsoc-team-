@@ -45,8 +45,28 @@ p {
     font-variant: small-caps;
     
 }
-table{
-    border: 1px ;
+table,td{
+    border: 1px solid;
+    vertical-align: bottom;
+    padding: 10px;
+    border-collapse: collapse;
+
 }
 
+table{
+    width: 30%;    
+}
+tr{
+    height: 50px;
+}
+thead td{
+    text-align: center;
+}
+td:hover{
+    color: brown;
+    background-color: black;
+}
+tr:nth-child(even){
+    background-color: blue;
+}
 /* Height and Width */

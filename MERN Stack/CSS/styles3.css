@@ -1,0 +1,76 @@
+/* .content {
+    border: 2px blue solid;
+    opacity: 0.7;
+    border-radius: 15px;
+} */
+.para {
+    /* background-color: brown !important; */
+    /* position: fixed; */
+    overflow: hidden;
+    height: 100px;
+    width: 100%;
+    background-color: aqua;
+    border: 2px red solid;
+    z-index: -1;
+}    
+img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.disp {
+    display: block;          /*inline in same line     none neglected the tagging tags*/
+    width: 200px;
+    height: 40px;
+    background-color: saddlebrown;
+    visibility: hidden;
+}
+
+/* 
+#Para {
+    background-color: blue;
+} */
+
+/* 
+!important is used for the priority for tags */
+
+/* position: relative;               position: static;  for default 
+     left: 50px;
+     border: 3px solid red; */
+
+/* 
+     positions{
+        1.static-default
+        2.relative-custom
+        3.absolute-Back
+        4.sticky-after scrolling it is constant
+        5.fixed-constant in scrolling
+     } */
+
+     /* .content .para {
+     background-color: brown !important; 
+    position: absolute;
+    left: 50px;
+    opacity: 0.5;
+    border: 2px solid red;    
+
+    position: sticky;
+    top: 0px;
+    background-color: blue;
+    border: 2px solid red;
+
+} */
+
+/*
+overflow arranging the large text in shortest way
+width: 100px;
+    height: 100px;
+    background-color: aqua;
+    color: black;
+    border: 2px red solid;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+*/
