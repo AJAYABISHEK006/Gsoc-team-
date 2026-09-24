@@ -1,0 +1,4 @@
+functions{
+    1.console.log() -- print statement
+    2.alert() -- to alert
+}
