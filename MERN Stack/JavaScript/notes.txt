@@ -1,4 +1,14 @@
 functions{
     1.console.log() -- print statement
     2.alert() -- to alert
+    3.prompt() -- to get input
+    4.confirm() -- to confirm it
 }
+
+Data_Type{
+    1.Number Data_Type
+    2.BigInt Data_Type
+    3.String Data_Type
+    4.Mis Data_Type(boolean, null, undefined)
+}
+
