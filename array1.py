@@ -8,9 +8,9 @@ size = size - 1
 print(arr)
 print()
 
-# Initial array
+
 arr = [2, 4, 6, 8, 10]
-size = 5  # Current size of the array
+size = 5  
 
 position_to_delete = 2  # Index of the element to delete
 
