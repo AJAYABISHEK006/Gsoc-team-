@@ -50,7 +50,7 @@ class SinglyLinkedList:
         print("None")
 
 
-# Example
+
 list1 = SinglyLinkedList()
 
 list1.insert(10)
